@@ -1,0 +1,4 @@
+baseURL = "https://axmahr.github.io"
+languageCode = "en-us"
+title = "axmahr's blog"
+theme = "fluency"
