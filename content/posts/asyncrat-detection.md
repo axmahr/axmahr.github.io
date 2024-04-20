@@ -1,11 +1,11 @@
 ---
-title: "New Robust Technique for Reliably Identifying AyncRAT/DcRAT/VenomRAT Server"
+title: "New Robust Technique for Reliably Identifying AsyncRAT/DcRAT/VenomRAT Servers"
 date: 2024-04-20T15:00:00+02:00
 tags: ["AsyncRAT", "DcRAT", "VenomRAT", "CTI"]
 draft: false
 ---
 
-Looking for indicators in order to detect C2 server of the QuasarRAT family is nothing particularly new. Up to now, two main approaches are already known:
+Looking for indicators in order to detect C2 servers of the QuasarRAT family is nothing particularly new. Up to now, two main approaches are already known:
 - It is trivial to identify QuasarRAT/AsyncRAT/DcRAT/VenomRAT when default TLS certificates are used. Then, we can look at the certificate's Subject/Issuer CN which directly gives us the information we look for. E.g., for AsyncRAT, Issuer CN and Subject CN are `AsyncRAT Server`. This approach has been explained in [various reports and blog posts](#references).
 - Fingerprints like [JA3S](https://github.com/salesforce/ja3), [JA4S/JA4X](https://github.com/FoxIO-LLC/ja4) and [JARM](https://github.com/salesforce/jarm) also allow for detecting these RATs.
 
@@ -78,7 +78,7 @@ By the way, the ability of sending valid C2 packets which are then regardlessly 
 Sending valid C2 packets that are blindly processed by the server is only possible for AsyncRAT/DcRAT/VenomRAT. QuasarRAT on the other side requires that the client is actually a valid client beacon. Nevertheless there is also another possibility to identify QuasarRAT:
 A QuasarRAT server doesn't begin processing a packet sent by a client until 4 or more bytes are received since a QuasarRAT packet (inside TLS) always begins with 4 bytes indicating the size of the following payload. And when these 4 bytes don't match the actual payload size, the server disconnects. Thus, a possible indicator for identifying a QuasarRAT server is to send 3 bytes of data to the server. When the connection keeps established and is closed by the server once a fourth byte is sent, the server might be QuasarRAT.
 
-I combined this approach with other fingerprint- and ceritificate-based indicators to an overall detection tool which identifies servers of the QuasarRAT family. You can find it here: https://github.com/axmahr/QuasarRAT-Family-Detection
+I combined this approach with other fingerprint- and ceritificate-based indicators to an overall detection tool which identifies QuasarRAT, AsyncRAT, DcRAT and VenomRAT servers. You can find it here: https://github.com/axmahr/QuasarRAT-Family-Detection
 
 
 
