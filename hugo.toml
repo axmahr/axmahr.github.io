@@ -1,4 +1,43 @@
 baseURL = "https://axmahr.github.io"
 languageCode = "en-us"
-title = "axmahr's blog"
+defaultContentLanguage = "en"
+title = "Axel's IT Security Research"
 theme = "fluency"
+enableRobotsTXT = true
+pygmentsUseClasses = true
+pygmentsCodefences = true
+hasCJKLanguage = false
+enableEmoji = true
+
+[params]
+    author = "Axel Mahr"
+    description = "Blog posts about some research I do."
+    mainSections = [ "posts" ]
+
+[[menu.main]]
+identifier = "posts"
+name = "posts"
+url = "/posts"
+weight = 1
+
+[[menu.main]]
+identifier = "tags"
+name = "tags"
+url = "/tags"
+weight = 2
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true
+
+
