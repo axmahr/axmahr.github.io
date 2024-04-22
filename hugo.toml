@@ -26,6 +26,21 @@ name = "tags"
 url = "/tags"
 weight = 2
 
+[[menu.footer]]
+identifier = "twitter"
+url = "https://twitter.com/axelmahr"
+name = "Twitter"
+
+[[menu.footer]]
+identifier = "linkedin"
+url = "https://www.linkedin.com/in/axel-mahr-b586a32a9/"
+name = "LinkedIn"
+
+[[menu.footer]]
+identifier = "github"
+url = "https://github.com/axmahr"
+name = "Github"
+
 [privacy]
   [privacy.disqus]
     disable = true
