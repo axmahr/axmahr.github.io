@@ -5,7 +5,7 @@ tags: ["XenoRAT", "CTI"]
 draft: false
 ---
 
-XenoRAT is a relatively new RAT, that is [open-source](https://github.com/moom825/xeno-rat) and used by low-sophisticated cyber criminals but also APT groups (in particular Kimsuky). In this post, we will look at how we can detect XenoRAT C2 servers through scanning. But, before we come to that, we need to take a quick look at XenoRAT's C2 protocol.
+XenoRAT is a relatively new RAT, that is [open-source](https://github.com/moom825/xeno-rat) and used by low-sophisticated cyber criminals but also APT groups. In this post, we will look at how we can detect XenoRAT C2 servers through scanning. But, before we come to that, we need to take a quick look at XenoRAT's C2 protocol.
 
 
 ## XenoRAT's C2 Packet Formats
@@ -50,9 +50,9 @@ However, weirdly and luckily for us, due to an unused code path inside the XenoR
 |:--:|
 | *Technique to identify XenoRAT C2 server* |
 
-By that, we didn't only achieve that the XenoRAT C2 server send a second characteristic packet to the client, giving us a considerably more accurate indicator. With that second server packet, we can additionally determine, whether the default password "1234" ist used, since the plaintext ("moom825") is known. When this default password is used, the respective packet bytes are `11 00 00 00 00 dc db 8d 8b 56 4b f3 37 ae 1a e8 c3 b7 2e 8c 8c` and one is able to further impersonate a real implant, since the AES key is then known and the client thus can construct valid messages.
+By that, we didn't only achieve that the XenoRAT C2 server sends a second characteristic packet to the client, giving us a considerably more accurate indicator. With that second server packet, we can additionally determine, whether the default password "1234" ist used, since the plaintext ("moom825") is known. When this default password is used, the respective packet bytes are `11 00 00 00 00 dc db 8d 8b 56 4b f3 37 ae 1a e8 c3 b7 2e 8c 8c` and one is able to further impersonate a real implant, since the AES key is then known and the client thus can construct valid messages.
 
-With the following code snippet, we can realize this described detection method:
+With the following code snippet, we can realize the described detection method:
 ```python
 import socket
 import binascii
