@@ -26,6 +26,12 @@ name = "tags"
 url = "/tags"
 weight = 2
 
+[[menu.main]]
+identifier = "about"
+name = "about"
+url = "/about"
+weight = 3
+
 [[menu.footer]]
 identifier = "twitter"
 url = "https://twitter.com/axelmahr"
